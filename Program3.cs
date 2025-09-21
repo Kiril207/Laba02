@@ -1,6 +1,7 @@
 ﻿using System;
-class DocumentWorker
+class DocumentWorker//base class
 {
+    //creating methods
     public virtual void EditDocument() {
         Console.WriteLine("Редактирование документа доступно в версии Pro");
     }
@@ -15,8 +16,9 @@ class DocumentWorker
 
 }
 
-class ProDocumentWorker():DocumentWorker 
+class ProDocumentWorker():DocumentWorker //child class
 {
+    //redefining the methods
     public override void EditDocument()
     {
         Console.WriteLine("Документ отредакирован");
@@ -31,7 +33,7 @@ class ProDocumentWorker():DocumentWorker
     }
 }
 
-class ExpertDocumentWorker() : ProDocumentWorker
+class ExpertDocumentWorker() : ProDocumentWorker//child class
 {
     public override void SaveDocument()
     {
@@ -43,10 +45,10 @@ class Program
 {
     static void Main()
     {
-        Console.Write("Введите ключ продукта: ");
+        Console.Write("Введите ключ продукта: ");//display the message
         string key;
-        key = Console.ReadLine();
-        DocumentWorker programm;
+        key = Console.ReadLine();//reading the message
+        DocumentWorker programm;//creating element of a class
         if (key == "pro")
         {
             programm = new ProDocumentWorker();
@@ -59,8 +61,10 @@ class Program
         {
             programm = new DocumentWorker();
         }
+        //display the features of the mode on the screen
         programm.SaveDocument();
         programm.OpenDocument();
         programm.EditDocument();
     }
 }
+
