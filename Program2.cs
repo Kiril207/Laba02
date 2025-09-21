@@ -1,16 +1,17 @@
 ﻿using System;
-class Vehicle
+class Vehicle//creating a class
 {
+    //class fields
     protected int price;
     protected int speed;
     protected int year;
-    public Vehicle(int price, int speed, int year)
+    public Vehicle(int price, int speed, int year)//constructor
     {
         this.price = price;
         this.speed = speed;
         this.year = year;
     }
-    public virtual void ShowInfo()
+    public virtual void ShowInfo()//method
     {
         Console.WriteLine($"Цена: {price}");
         Console.WriteLine($"Скорость: {speed}");
@@ -18,17 +19,17 @@ class Vehicle
     }
 
 }
-class Plane : Vehicle
+class Plane : Vehicle//child class
 {
     private int height;
     private int capacity;
-    public Plane(int height, int capacity, int price, int speed, int year):base(price,speed,year)  
+    public Plane(int height, int capacity, int price, int speed, int year):base(price,speed,year)//redefined constructor  
         {
         this.height = height;
         this.capacity = capacity;
         
     }
-    public override void ShowInfo()
+    public override void ShowInfo()//redefined method
     {
         base.ShowInfo();
         Console.WriteLine($"Высота: {height}");
@@ -36,9 +37,9 @@ class Plane : Vehicle
         Console.WriteLine();
     }
 }
-class Car : Vehicle
+class Car : Vehicle//child class
 {
-    public Car(int price, int speed, int year) : base(price, speed, year)
+    public Car(int price, int speed, int year) : base(price, speed, year)//redefined constructor
     {
         {
 
@@ -50,17 +51,17 @@ class Car : Vehicle
         Console.WriteLine();
     }
 }
-class Ship : Vehicle
+class Ship : Vehicle//child class
 {
     private int capacity;
     private string port = "";
-    public Ship(int capacity, string port, int price, int speed, int year) : base(price, speed, year)
+    public Ship(int capacity, string port, int price, int speed, int year) : base(price, speed, year)//redefined constructor
     {
         this.capacity = capacity;
         this.port = port;
         this.capacity = capacity;
     }
-    public override void ShowInfo()
+    public override void ShowInfo()//redefined method
     {
         base.ShowInfo();
         Console.WriteLine($"Вместимость: {capacity}");
@@ -74,13 +75,15 @@ class Program
 {
     static void Main()
     {
-        Plane pln = new Plane(20, 250, 20000000, 950, 2025);
+        Plane pln = new Plane(20, 250, 20000000, 950, 2025);//creating elements of the child class
         Ship shp = new Ship(1500, "St. Petersburg", 50000000, 150, 2010);
         Car cr = new Car(1500, 190, 2019);
+        //display information about each created class element
         pln.ShowInfo();
         shp.ShowInfo();
         cr.ShowInfo();
     }
     
 }
+
 
