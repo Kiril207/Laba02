@@ -1,8 +1,8 @@
 ﻿using System;
 
-class Pupil
+class Pupil//creating a class
 {
-    public virtual void Study()
+    public virtual void Study()//creating methods
     {
         Console.WriteLine("...");
     }
@@ -19,9 +19,9 @@ class Pupil
         Console.WriteLine("...");
     }
 }
-class ExcellentPupil : Pupil
+class ExcellentPupil : Pupil//child class
 {
-    public override void Study()
+    public override void Study()//redefined methods
     {
         Console.WriteLine("Прекрасно учится");
     }
@@ -38,9 +38,9 @@ class ExcellentPupil : Pupil
         Console.WriteLine("Прекрасно отдыхает");
     }
 }
-class GoodPupil : Pupil
+class GoodPupil : Pupil//child class
 {
-    public override void Study()
+    public override void Study()//redefined methods
     {
         Console.WriteLine("Хорошо учится");
     }
@@ -58,9 +58,9 @@ class GoodPupil : Pupil
     }
 
 }
-class BadPupil : Pupil
+class BadPupil : Pupil//child class
 {
-    public override void Read()
+    public override void Read()//redefined methods
     {
         Console.WriteLine("Плохо читает");
     }
@@ -77,18 +77,19 @@ class BadPupil : Pupil
         Console.WriteLine("Плохо учится");
     }
 }
-class ClassRoom
+class ClassRoom//creating a class
 {
-    private Pupil[] pupils;
+    
+    private Pupil[] pupils;//class field    
 
-    public ClassRoom(params Pupil[] pupils)
+    public ClassRoom(params Pupil[] pupils)//constructor
     {
-        if (pupils.Length < 2 || pupils.Length > 4)
+        if (pupils.Length < 2 || pupils.Length > 4)//checking the condition
         {
-            throw new ArgumentException("Класс должен содержать от 2 до 4 учеников");
+            throw new ArgumentException("Класс должен содержать от 2 до 4 учеников");//creating an exception
         }
         this.pupils = new Pupil[4];
-        for (int i = 0; i < pupils.Length; i++)
+        for (int i = 0; i < pupils.Length; i++)//filling the array
         {
             this.pupils[i]=pupils[i];
         }
@@ -97,7 +98,7 @@ class ClassRoom
             this.pupils[i] = new ExcellentPupil();
         }
     }
-    public void ShowClassInfo()
+    public void ShowClassInfo()//class method
     {
         Console.WriteLine("=== ИНФОРМАЦИЯ О КЛАССЕ ===");
         Console.WriteLine();
@@ -118,13 +119,14 @@ class Program
 {
     static void Main()
     {
-        ExcellentPupil excellent=new ExcellentPupil();
+        ExcellentPupil excellent=new ExcellentPupil();//creating elemenths of the class
         GoodPupil good=new GoodPupil();
         BadPupil bad=new BadPupil();
         ClassRoom class2 = new ClassRoom(excellent, good,bad);
-        class2.ShowClassInfo();
+        class2.ShowClassInfo();//calling the class method
         ClassRoom class1 = new ClassRoom(excellent);
 
 
     }
+
 }
